@@ -92,4 +92,3 @@ function login() {
     alert("Wrong email or password");
   }
 }
-
