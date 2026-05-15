@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="logo">📘 Teacher Portal</div>
+  </header>
+
+  <!-- PROFILE SECTION -->
+  <section class="profile-box">
+
+    <img id="profileImg" src="https://via.placeholder.com/120" alt="Profile">
+
+    <h1 id="greeting">Hello Teacher 👋</h1>
+
+    <!-- Upload photo -->
+    <input type="file" id="uploadPhoto" accept="image/*">
+    <button onclick="savePhoto()">Save Photo</button>
+
+  </section>
+
+  <script>
+    // Load teacher name
+    const name = localStorage.getItem("teacherName") || "Eloi";
+    document.getElementById("greeting").innerText =
+      "Hello Teacher " + name + " 👋";
+
+    // Load saved photo
+    const savedPhoto = localStorage.getItem("teacherPhoto");
+    if (savedPhoto) {
+      document.getElementById("profileImg").src = savedPhoto;
+    }
+
+    // Save new photo
+    function savePhoto() {
+      const file = document.getElementById("uploadPhoto").files[0];
+
+      if (!file) {
+        alert("Please select a photo");
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        const imageData = e.target.result;
+
+        // Save in browser
+        localStorage.setItem("teacherPhoto", imageData);
+
+        // Show immediately
+        document.getElementById("profileImg").src = imageData;
+      };
+
+      reader.readAsDataURL(file);
+    }
+   
+  
+  </script>
+
+</body>
+</html>
