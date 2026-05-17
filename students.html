@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Students Management</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial;
+    }
+
+    body{
+     background-image: linear-gradient(
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.75)
+    ),
+    url("images/modern-minimalist-office-black-white.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+      padding:30px;
+    }
+
+    h1{
+      color:#1e3a8a;
+      margin-bottom:20px;
+    }
+
+    /* BOXES */
+
+    .box{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      margin-bottom:20px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .box h2{
+      margin-bottom:15px;
+      color:#1e3a8a;
+    }
+
+    input, select{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      border:1px solid #ccc;
+      border-radius:5px;
+      font-size:16px;
+    }
+
+    button{
+      padding:12px 20px;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+      font-size:15px;
+    }
+
+    .add-btn{
+      background:#1e3a8a;
+      color:white;
+    }
+
+    .add-btn:hover{
+      background:#2563eb;
+    }
+
+    /* CLASS CARD */
+
+    .class-card{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      margin-top:20px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .class-card h2{
+      color:#1e3a8a;
+      margin-bottom:10px;
+    }
+
+    /* STUDENTS */
+
+    .student{
+      background:#eef2ff;
+      padding:12px;
+      margin:10px 0;
+      border-radius:8px;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .student-name{
+      font-size:16px;
+    }
+
+    .delete-btn{
+      background:red;
+      color:white;
+      padding:8px 12px;
+    }
+
+    .delete-btn:hover{
+      background:darkred;
+    }
+
+    /* SEARCH */
+
+    #searchInput{
+      background:#f9fafb;
+    }
+
+    .no-result{
+      color:red;
+      margin-top:10px;
+    }
+
+  </style>
+</head>
+<body>
+
+<h1>👨‍🎓 Students Management</h1>
+
+<!-- SEARCH -->
+<div class="box">
+
+  <h2>🔍 Search Student</h2>
+
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search student name..."
+    onkeyup="searchStudent()"
+  >
+
+  <p id="searchMessage" class="no-result"></p>
+
+</div>
+
+<!-- ADD CLASS -->
+<div class="box">
+
+  <h2>📚 Add New Class</h2>
+
+  <input
+    type="text"
+    id="className"
+    placeholder="Enter Class Name"
+  >
+
+  <button class="add-btn" onclick="addClass()">
+    Add Class
+  </button>
+
+</div>
+
+<!-- ADD STUDENT -->
+<div class="box">
+
+  <h2>➕ Add Student</h2>
+
+  <select id="classSelect">
+    <option value="">Select Class</option>
+  </select>
+
+  <input
+    type="text"
+    id="studentName"
+    placeholder="Enter Student Name"
+  >
+
+  <button class="add-btn" onclick="addStudent()">
+    Add Student
+  </button>
+
+</div>
+
+<!-- DISPLAY CLASSES -->
+<div id="classesContainer"></div>
+
+<script>
+
+  // STORAGE
+  let classes =
+  JSON.parse(localStorage.getItem("classes")) || [];
+
+  // RENDER CLASSES
+  function renderClasses(filteredText = ""){
+
+    const container =
+    document.getElementById("classesContainer");
+
+    const select =
+    document.getElementById("classSelect");
+
+    container.innerHTML = "";
+
+    select.innerHTML =
+    `<option value="">Select Class</option>`;
+
+    let found = false;
+
+    classes.forEach((classItem, classIndex) => {
+
+      // ADD TO DROPDOWN
+      select.innerHTML += `
+        <option value="${classIndex}">
+          ${classItem.name}
+        </option>
+      `;
+
+      // STUDENTS HTML
+      let studentsHTML = "";
+
+      classItem.students.forEach((student, studentIndex) => {
+
+        // SEARCH FILTER
+        if(
+          student
+          .toLowerCase()
+          .includes(filteredText.toLowerCase())
+        ){
+
+          found = true;
+
+          studentsHTML += `
+
+            <div class="student">
+
+              <span class="student-name">
+                👨‍🎓 ${student}
+              </span>
+
+              <button
+                class="delete-btn"
+                onclick="deleteStudent(${classIndex}, ${studentIndex})"
+              >
+                Delete
+              </button>
+
+            </div>
+          `;
+        }
+      });
+
+      // SHOW CLASS ONLY IF IT HAS STUDENTS
+      if(studentsHTML !== ""){
+
+        container.innerHTML += `
+
+          <div class="class-card">
+
+            <h2>📚 ${classItem.name}</h2>
+
+            <p>
+              Total Students:
+              ${classItem.students.length}
+            </p>
+
+            ${studentsHTML}
+
+          </div>
+        `;
+      }
+
+    });
+
+    // NO SEARCH RESULT
+    if(filteredText !== "" && !found){
+
+      document.getElementById("searchMessage")
+      .innerText = "No student found.";
+
+    }else{
+
+      document.getElementById("searchMessage")
+      .innerText = "";
+    }
+
+    // SAVE
+    localStorage.setItem(
+      "classes",
+      JSON.stringify(classes)
+    );
+  }
+
+  // ADD CLASS
+  function addClass(){
+
+    const className =
+    document.getElementById("className").value;
+
+    if(className === ""){
+
+      alert("Enter class name");
+
+      return;
+    }
+
+    classes.push({
+      name: className,
+      students: []
+    });
+
+    document.getElementById("className").value = "";
+
+    renderClasses();
+  }
+
+  // ADD STUDENT
+  function addStudent(){
+
+    const classIndex =
+    document.getElementById("classSelect").value;
+
+    const studentName =
+    document.getElementById("studentName").value;
+
+    if(classIndex === ""){
+
+      alert("Select class");
+
+      return;
+    }
+
+    if(studentName === ""){
+
+      alert("Enter student name");
+
+      return;
+    }
+
+    classes[classIndex]
+    .students
+    .push(studentName);
+
+    document.getElementById("studentName").value = "";
+
+    renderClasses();
+  }
+
+  // DELETE STUDENT
+  function deleteStudent(classIndex, studentIndex){
+
+    const confirmDelete =
+    confirm("Delete this student?");
+
+    if(confirmDelete){
+
+      classes[classIndex]
+      .students
+      .splice(studentIndex, 1);
+
+      renderClasses();
+    }
+  }
+
+  // SEARCH
+  function searchStudent(){
+
+    const searchText =
+    document.getElementById("searchInput").value;
+
+    renderClasses(searchText);
+  }
+
+  // INITIAL LOAD
+  renderClasses();
+
+</script>
+
+</body>
+</html>
