@@ -54,9 +54,13 @@ nav a:hover{
   gap:20px;
   padding:40px 60px;
 }
-
+.a{
+  text-decoration: none;
+}
 .card{
   background:#1e293b;
+  
+  color: white;
   padding:25px;
   border-radius:12px;
   text-align:center;
