@@ -13,36 +13,37 @@
     <div class="logo">📘 Teacher Portal</div>
 
     <nav>
-      <a href="#">Dashboard</a>
-      <a href="profile.html">Profile</a>
-      <a href="#">Classes</a>
-      <a href="#">Logout</a>
+          <a href="dashboard.html">Dashboard</a>
+    <a href="profile.html">Profile</a>
+   
+    <a href="#" onclick="logout()">Logout</a>
+
     </nav>
   </header>
 
   <!-- WELCOME SECTION -->
   <section class="welcome">
-    <h1>Welcome, Teacher 👋</h1>
+   <h1 id="greeting">Welcome Teacher 👋</h1>
     <p>Manage your classes, students, and teaching activities from your dashboard.</p>
   </section>
 
   <!-- STATS CARDS -->
   <section class="cards">
 
-    <div class="card">
+    <a href="class.html" class="a"><div class="card">
       <h2>📚 My Classes</h2>
       <p>0 Active Classes</p>
-    </div>
+    </div></a>
 
-    <div class="card">
+    <a href="students.html" class="a"><div class="card">
       <h2>👨‍🎓 Students</h2>
       <p>0 Students</p>
-    </div>
+    </div></a>
 
-    <div class="card">
+     <a href="assignments.html" class="a"><div class="card">
       <h2>📝 Assignments</h2>
       <p>0 Pending</p>
-    </div>
+    </div></a>
 
     <div class="card">
       <h2>📊 Performance</h2>
@@ -63,15 +64,21 @@
     </div>
   </section>
  <script>
-    const name = localStorage.getItem("teacherName");
+const name = localStorage.getItem("teacherName");
 
-    if (name) {
-      document.getElementById("greeting").innerText =
-        "Hello Teacher " + name + " 👋";
-    } else {
-      document.getElementById("greeting").innerText =
-        "Hello Teacher 👋";
-    }
+if(name){
+
+  document.getElementById("greeting").innerText =
+  "Welcome Teacher " + name + " 👋";
+}
+
+function logout(){
+
+  localStorage.removeItem("teacherName");
+
+  window.location.href = "index.html";
+}
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
