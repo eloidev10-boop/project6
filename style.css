@@ -8,14 +8,11 @@
 body{
     font-family: 'Segoe UI', sans-serif;
     color: white;
-  
     margin: 0;
     padding: 0;
-    
     padding-top: 20px;
     padding-left: 100px;
     padding-right: 160px;
-
 }
 
 /* BACKGROUND */
@@ -39,7 +36,6 @@ html{
     max-width: 1200px;
     margin: auto;
     padding: 20px 40px;
-   
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,9 +74,7 @@ justify-content: space-between;
 nav{
     display: flex;
     gap: 18px;
-    
     align-items: center;
-
 }
 
 nav a{
@@ -96,9 +90,7 @@ nav a{
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 12px;
     background: rgba(255,255,255,0.05);
-
     backdrop-filter: blur(10px);
-
     transition: 0.4s ease;
 }
 .btn{
@@ -117,7 +109,7 @@ nav a{
 }
 
 /* HERO SECTION */
-.hero-container{
+.hero_container{
     max-width: 1200px;
     margin: 80px auto;
     padding: 40px;
@@ -127,16 +119,11 @@ nav a{
 .slider-container{
     position: relative;
     height: 500px;
-
     border-radius: 25px;
     overflow: hidden;
-
     background: rgba(255,255,255,0.05);
-
     backdrop-filter: blur(15px);
-
     border: 1px solid rgba(255,255,255,0.1);
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -147,16 +134,14 @@ nav a{
     position: absolute;
     width: 100%;
     height: 100%;
-
     opacity: 0;
     transition: opacity 1s ease;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
+    padding: 20px;
 }
 
 .slide.active{
@@ -167,7 +152,6 @@ nav a{
 .slide .title{
     font-size: 70px;
     margin-bottom: 20px;
-
     background: linear-gradient(to right,#60a5fa,#ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -185,13 +169,11 @@ nav a{
     padding: 16px 40px;
     border-radius: 50px;
     border: none;
-
     background: linear-gradient(
         to right,
         #2563eb,
         #60a5fa
     );
-
     transition: 0.4s ease;
 }
 
@@ -212,7 +194,6 @@ nav a{
 .slider-dots{
     position: absolute;
     bottom: 25px;
-
     display: flex;
     gap: 12px;
 }
@@ -220,10 +201,8 @@ nav a{
 .dot{
     width: 14px;
     height: 14px;
-
     border-radius: 50%;
     background: rgba(255,255,255,0.3);
-
     transition: 0.3s ease;
 }
 
@@ -232,110 +211,112 @@ nav a{
     transform: scale(1.2);
 }
 
+section{
+  padding:80px 10%;
+}
 
-    section{
-      padding:80px 10%;
-    }
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
 
-    .section-title{
-      text-align:center;
-      margin-bottom:50px;
-    }
+.section-title h2{
+  font-size:36px;
+  color:#1e3a5f;
+  margin-bottom:10px;
+}
 
-    .section-title h2{
-      font-size:36px;
-      color:#1e3a5f;
-      margin-bottom:10px;
-    }
+.section-title p{
+  color:#666;
+  font-size:16px;
+}
 
-    .section-title p{
-      color:#666;
-      font-size:16px;
-    }
+/* ABOUT SECTION */
+.about{
+  display:flex;
+  align-items:center;
+  gap:50px;
+  flex-wrap:wrap;
+}
 
-    /* ABOUT SECTION */
-    .about{
-      display:flex;
-      align-items:center;
-      gap:50px;
-      flex-wrap:wrap;
-    }
+.about-image{
+  flex:1;
+  min-width: 250px;
+}
 
-    .about-image{
-      flex:1;
-    }
+.about-image img{
+  width:100%;
+  border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
 
-    .about-image img{
-      width:100%;
-      border-radius:15px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    }
+.about-content{
+  flex:1;
+  min-width: 250px;
+}
 
-    .about-content{
-      flex:1;
-    }
+.about-content h3{
+  font-size:30px;
+  color:#1e3a5f;
+  margin-bottom:20px;
+}
 
-    .about-content h3{
-      font-size:30px;
-      color:#1e3a5f;
-      margin-bottom:20px;
-    }
+.about-content p{
+  margin-bottom:15px;
+  color:#555;
+}
 
-    .about-content p{
-      margin-bottom:15px;
-      color:#555;
-    }
+.about-btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 25px;
+  background:#1e3a5f;
+  color:white;
+  text-decoration:none;
+  border-radius:5px;
+  transition:0.3s;
+}
 
-    .about-btn{
-      display:inline-block;
-      margin-top:15px;
-      padding:12px 25px;
-      background:#1e3a5f;
-      color:white;
-      text-decoration:none;
-      border-radius:5px;
-      transition:0.3s;
-    }
+.about-btn:hover{
+  background:#16304d;
+}
 
-    .about-btn:hover{
-      background:#16304d;
-    }
+/* SERVICES SECTION */
+.services-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+  gap:25px;
+}
 
-    /* SERVICES SECTION */
-    .services-container{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-      gap:25px;
-    }
+.service-card{
+  background-color: #1a1a1a;
+  padding:30px;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
 
-    .service-card{
-      background-color: #1a1a1a;
-      padding:30px;
-      border-radius:12px;
-      text-align:center;
-      box-shadow:0 5px 15px rgba(0,0,0,0.08);
-      transition:0.3s;
-    }
+.service-card:hover{
+  transform:translateY(-10px);
+}
 
-    .service-card:hover{
-      transform:translateY(-10px);
-    }
+.service-icon{
+  font-size:45px;
+  margin-bottom:20px;
+}
 
-    .service-icon{
-      font-size:45px;
-      margin-bottom:20px;
-    }
+.service-card h3{
+  color:#1e3a5f;
+  margin-bottom:15px;
+}
 
-    .service-card h3{
-      color:#1e3a5f;
-      margin-bottom:15px;
-    }
+.service-card p{
+  color: grey;
+  font-size:15px;
+}
 
-    .service-card p{
-      color: grey;
-      font-size:15px;
-    }
-    .footer{
+.footer{
   background: #1a1a1a;
   color:white;
   padding:60px 10% 20px;
@@ -346,7 +327,6 @@ nav a{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
   gap:30px;
-  
 }
 
 .footer-box h3{
@@ -385,4 +365,292 @@ nav a{
   border-top:1px solid rgba(255,255,255,0.2);
   font-size:13px;
   color:#cbd5e1;
+}
+
+/* ========== MOBILE RESPONSIVE ========== */
+
+/* Tablet Screens (768px and below) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .header_container {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .header_content {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .info {
+        justify-content: center;
+    }
+
+    .info h2 {
+        font-size: 30px;
+    }
+
+    .info p {
+        font-size: 16px;
+    }
+
+    nav {
+        width: 100%;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn-primary {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    .hero_container {
+        margin: 40px auto;
+        padding: 20px;
+    }
+
+    .slider-container {
+        height: 400px;
+    }
+
+    .slide .title {
+        font-size: 50px;
+    }
+
+    .slide .content {
+        font-size: 16px;
+        width: 85%;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+
+    section {
+        padding: 50px 20px;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+    .about {
+        gap: 30px;
+    }
+
+    .about-content h3 {
+        font-size: 24px;
+    }
+
+    .services-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .service-icon {
+        font-size: 35px;
+    }
+
+    .footer {
+        padding: 40px 20px 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Mobile Screens (480px and below) */
+@media (max-width: 480px) {
+    body {
+        padding-top: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .header_container {
+        padding: 10px 15px;
+    }
+
+    .info h2 {
+        font-size: 24px;
+    }
+
+    .info p {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .hero_container {
+        margin: 30px auto;
+        padding: 15px;
+    }
+
+    .slider-container {
+        height: 350px;
+        border-radius: 15px;
+    }
+
+    .slide .title {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .slide .content {
+        font-size: 14px;
+        width: 95%;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 10px 24px;
+        font-size: 12px;
+    }
+
+    .slider-dots {
+        bottom: 15px;
+        gap: 8px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+
+    .section-title h2 {
+        font-size: 24px;
+    }
+
+    .section-title p {
+        font-size: 14px;
+    }
+
+    .about {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .about-image {
+        min-width: 100%;
+    }
+
+    .about-content {
+        min-width: 100%;
+    }
+
+    .about-content h3 {
+        font-size: 20px;
+    }
+
+    .about-content p {
+        font-size: 14px;
+    }
+
+    .services-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .service-card {
+        padding: 15px;
+    }
+
+    .service-icon {
+        font-size: 30px;
+    }
+
+    .service-card h3 {
+        font-size: 18px;
+    }
+
+    .service-card p {
+        font-size: 13px;
+    }
+
+    .footer {
+        padding: 30px 15px 15px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-box h3 {
+        font-size: 16px;
+    }
+
+    .footer-box p,
+    .footer-box a {
+        font-size: 13px;
+    }
+
+    .footer-bottom {
+        font-size: 11px;
+    }
+
+    .social-links {
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .social-links a {
+        flex: 1;
+        text-align: center;
+    }
+}
+
+/* Extra Small Screens (360px and below) */
+@media (max-width: 360px) {
+    .slide .title {
+        font-size: 28px;
+    }
+
+    .slide .content {
+        font-size: 12px;
+    }
+
+    .section-title h2 {
+        font-size: 20px;
+    }
+
+    nav {
+        gap: 5px;
+    }
+
+    .btn-primary {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
 }
