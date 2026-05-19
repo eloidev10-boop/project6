@@ -18,16 +18,7 @@ body{
 /* BACKGROUND */
 html{
     scroll-behavior: smooth;
-    background-image: linear-gradient(
-        rgba(0,0,0,0.75),
-        rgba(0,0,0,0.75)
-    ),
-    url("images/modern-minimalist-office-black-white.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: #1a1a1a;
 }
 
 /* HEADER */
