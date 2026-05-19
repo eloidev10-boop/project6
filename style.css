@@ -35,12 +35,15 @@ html{
   .header_container{
     max-width: 1200px;
     margin: auto;
+    background: transparent;
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  }
 
 /* LOGO */
 .info{
@@ -51,16 +54,16 @@ html{
 }
 .nav_links{
   justify-content: flex-end;
-  gap: 10px;
   align-items: center;
-  display: inline-block;
+  padding-left: 600px;
+ padding-top: 14px;
 }
-.info h2{
+.logo-title{
     font-size: 40px;
     color: #3b82f6;
 }
 
-.info p{
+.logo-subtitle{
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 2px;
@@ -85,7 +88,7 @@ nav a{
 }
 
 /* BUTTONS */
-.btn-primary{
+.nav-link{
     padding: 10px 18px;
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 12px;
@@ -93,11 +96,11 @@ nav a{
     backdrop-filter: blur(10px);
     transition: 0.4s ease;
 }
-.btn{
+.nav-link{
   transition: 0.4s ease;
   backdrop-filter: blur(10px);
 }
-.btn-primary:hover{
+.nav-link:hover{
     background: linear-gradient(
         135deg,
         #2563eb,
@@ -149,7 +152,7 @@ nav a{
 }
 
 /* HERO TEXT */
-.slide .title{
+.slide-title{
     font-size: 70px;
     margin-bottom: 20px;
     background: linear-gradient(to right,#60a5fa,#ffffff);
@@ -157,37 +160,11 @@ nav a{
     -webkit-text-fill-color: transparent;
 }
 
-.slide .content{
+.slide-content{
     font-size: 20px;
     color: #d1d5db;
     width: 60%;
     margin-bottom: 30px;
-}
-
-/* MAIN BUTTON */
-.btn{
-    padding: 16px 40px;
-    border-radius: 50px;
-    border: none;
-    background: linear-gradient(
-        to right,
-        #2563eb,
-        #60a5fa
-    );
-    transition: 0.4s ease;
-}
-
-.btn a{
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.btn:hover{
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(59,130,246,0.5);
-    transition: 0.4s ease;
-  backdrop-filter: blur(10px);
 }
 
 /* DOTS */
@@ -633,11 +610,11 @@ section{
 
 /* Extra Small Screens (360px and below) */
 @media (max-width: 360px) {
-    .slide .title {
+    .slide-title {
         font-size: 28px;
     }
 
-    .slide .content {
+    .slide-content {
         font-size: 12px;
     }
 
@@ -649,7 +626,7 @@ section{
         gap: 5px;
     }
 
-    .btn-primary {
+    .nav-link {
         padding: 8px 10px;
         font-size: 11px;
     }
