@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Portfolio CV</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+    min-height:100vh;
+    padding:40px 20px;
+}
+
+/* TITLE */
+
+.title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.title h1{
+    font-size:48px;
+    color:white;
+}
+
+.title p{
+    color:#aaa;
+    margin-top:10px;
+}
+
+/* MAIN CONTAINER */
+
+.container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    max-width:1500px;
+    margin:auto;
+}
+
+/* FORM */
+
+.form-card{
+    background:#1a1a1a;
+    border:1px solid #333;
+    border-radius:20px;
+    padding:35px;
+}
+
+.form-card h2{
+    margin-bottom:25px;
+    color:white;
+    font-size:30px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+label{
+    color:#ccc;
+    font-size:14px;
+    margin-bottom:5px;
+}
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#000;
+    color:white;
+    border:1px solid #333;
+    outline:none;
+    font-size:15px;
+}
+
+textarea{
+    resize:none;
+    height:100px;
+}
+
+input:focus,
+textarea:focus{
+    border:1px solid white;
+}
+
+/* BUTTONS */
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+
+button{
+    flex:1;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.generate-btn{
+    background:white;
+    color:black;
+}
+
+.generate-btn:hover{
+    background:#ddd;
+}
+
+.download-btn{
+    background:#000;
+    color:white;
+    border:1px solid white;
+}
+
+.download-btn:hover{
+    background:#222;
+}
+
+/* PREVIEW */
+
+.cv-preview{
+    background:#1a1a1a;
+    border:1px solid #333;
+    border-radius:20px;
+    padding:35px;
+}
+
+.cv-preview h2{
+    margin-bottom:25px;
+    font-size:30px;
+}
+
+/* CV BOX */
+
+.preview-box{
+    background:white;
+    color:black;
+    border-radius:10px;
+    padding:40px;
+    min-height:700px;
+}
+
+.preview-box h1{
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+.preview-box h2{
+    font-size:20px;
+    margin-top:25px;
+    margin-bottom:10px;
+    border-bottom:2px solid black;
+    padding-bottom:5px;
+}
+
+.preview-box p{
+    line-height:1.8;
+    color:#222;
+}
+
+.preview-box ul{
+    margin-left:20px;
+    margin-top:10px;
+}
+
+.preview-box li{
+    margin-bottom:8px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+    .container{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .title h1{
+        font-size:35px;
+    }
+
+    .form-card,
+    .cv-preview{
+        padding:25px 20px;
+    }
+
+    .preview-box{
+        padding:25px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TITLE -->
+
+<div class="title">
+
+    <h1>Teacher Portfolio CV</h1>
+
+    <p>
+        Create and download your professional teaching CV
+    </p>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="container">
+
+    <!-- FORM -->
+
+    <div class="form-card">
+
+        <h2>Teacher Information</h2>
+
+        <form id="cvForm">
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Teaching Subject</label>
+                <input type="text" id="subject">
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="email">
+            </div>
+
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input type="text" id="phone">
+            </div>
+
+            <div class="input-group">
+                <label>Address</label>
+                <input type="text" id="address">
+            </div>
+
+            <div class="input-group">
+                <label>Professional Summary</label>
+                <textarea id="summary"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Education Background</label>
+                <textarea id="education"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Schools Taught</label>
+                <textarea id="schools"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Teaching Experience</label>
+                <textarea id="experience"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Certifications & Training</label>
+                <textarea id="certifications"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Skills</label>
+                <textarea id="skills"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Languages Spoken</label>
+                <textarea id="languages"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Achievements & Awards</label>
+                <textarea id="awards"></textarea>
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    type="submit"
+                    class="generate-btn">
+
+                    Generate CV
+
+                </button>
+
+                <button
+                    type="button"
+                    class="download-btn"
+                    onclick="downloadCV()">
+
+                    Download CV
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- PREVIEW -->
+
+    <div class="cv-preview">
+
+        <h2>CV Preview</h2>
+
+        <div class="preview-box" id="preview">
+
+            <h1>Teacher CV Preview</h1>
+
+            <p>
+                Fill the form to generate your professional portfolio.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const form = document.getElementById("cvForm");
+
+form.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const name =
+    document.getElementById("name").value;
+
+    const subject =
+    document.getElementById("subject").value;
+
+    const email =
+    document.getElementById("email").value;
+
+    const phone =
+    document.getElementById("phone").value;
+
+    const address =
+    document.getElementById("address").value;
+
+    const summary =
+    document.getElementById("summary").value;
+
+    const education =
+    document.getElementById("education").value;
+
+    const schools =
+    document.getElementById("schools").value;
+
+    const experience =
+    document.getElementById("experience").value;
+
+    const certifications =
+    document.getElementById("certifications").value;
+
+    const skills =
+    document.getElementById("skills").value;
+
+    const languages =
+    document.getElementById("languages").value;
+
+    const awards =
+    document.getElementById("awards").value;
+
+    document.getElementById("preview").innerHTML = `
+
+        <h1>${name}</h1>
+
+        <p>
+            <strong>${subject}</strong><br>
+            ${email}<br>
+            ${phone}<br>
+            ${address}
+        </p>
+
+        <h2>Professional Summary</h2>
+        <p>${summary}</p>
+
+        <h2>Education Background</h2>
+        <p>${education}</p>
+
+        <h2>Schools Taught</h2>
+        <p>${schools}</p>
+
+        <h2>Teaching Experience</h2>
+        <p>${experience}</p>
+
+        <h2>Certifications & Training</h2>
+        <p>${certifications}</p>
+
+        <h2>Skills</h2>
+        <p>${skills}</p>
+
+        <h2>Languages Spoken</h2>
+        <p>${languages}</p>
+
+        <h2>Achievements & Awards</h2>
+        <p>${awards}</p>
+
+    `;
+
+});
+
+/* DOWNLOAD FUNCTION */
+
+function downloadCV(){
+
+    const content =
+    document.getElementById("preview").innerHTML;
+
+    const printWindow =
+    window.open('', '', 'width=900,height=700');
+
+    printWindow.document.write(`
+
+        <html>
+
+        <head>
+
+            <title>Teacher CV</title>
+
+            <style>
+
+                body{
+                    font-family:Poppins,sans-serif;
+                    padding:40px;
+                    color:black;
+                }
+
+                h1{
+                    font-size:34px;
+                }
+
+                h2{
+                    margin-top:25px;
+                    border-bottom:2px solid black;
+                    padding-bottom:5px;
+                }
+
+                p{
+                    line-height:1.8;
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+
+            ${content}
+
+        </body>
+
+        </html>
+
+    `);
+
+    printWindow.document.close();
+
+    printWindow.print();
+
+}
+
+</script>
+
+</body>
+</html>
