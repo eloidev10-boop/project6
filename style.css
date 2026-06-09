@@ -4,7 +4,31 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+  /* Primary (Trust / Education Blue) */
+  --primary: #2563eb;
 
+  /* Secondary (Growth / Calm Teal) */
+  --secondary: #14b8a6;
+
+  /* Accent (Success / Highlights) */
+  --accent: #f59e0b;
+
+  /* Background */
+  --bg: #f8fafc;
+
+  /* Card Background */
+  --card: #ffffff;
+
+  /* Text */
+  --text: #0f172a;
+
+  /* Muted Text */
+  --muted: #64748b;
+
+  /* Borders */
+  --border: #e2e8f0;
+}
 body{
     font-family: 'Segoe UI', sans-serif;
     color: white;
@@ -13,6 +37,11 @@ body{
     padding-top: 20px;
     padding-left: 100px;
     padding-right: 160px;
+
+
+  background: var(--bg);
+  color: var(--text);
+
 }
 
 /* BACKGROUND */
@@ -22,14 +51,9 @@ html{
         rgba(0,0,0,0.75),
         rgba(0,0,0,0.75)
     ),
-    url("images/modern-minimalist-office-black-white.jpg");
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
-}
+
 
 /* HEADER */
 
@@ -452,7 +476,71 @@ section{
         gap: 20px;
     }
 }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.navbar {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+input:focus {
+  border-color: var(--primary);
+}
+.navbar a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: var(--text);
+}
 
+.navbar a:hover {
+  color: var(--primary);
+}
+.profile-header {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 40px;
+  border-radius: 0 0 20px 20px;
+}
+button:hover {
+  background: #1d4ed8;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
 /* Mobile Screens (480px and below) */
 @media (max-width: 480px) {
     body {
