@@ -39,3 +39,42 @@ res.status(500).json(err);
 }
 
 };
+export const loginTeacher = async(req,res)=>{
+
+const {email,password}=req.body;
+
+const teacher = await Teacher.findOne({email});
+
+if(!teacher){
+return res.status(404).json({
+message:"Teacher not found"
+});
+}
+
+const match = await bcrypt.compare(
+password,
+teacher.password
+);
+
+if(!match){
+return res.status(401).json({
+message:"Invalid credentials"
+});
+}
+
+const token = jwt.sign(
+{
+id:teacher._id
+},
+process.env.JWT_SECRET,
+{
+expiresIn:"7d"
+}
+);
+
+res.json({
+token,
+teacher
+});
+
+};
