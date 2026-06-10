@@ -39,21 +39,26 @@ body{
     padding-right: 160px;
 
 
-  background: var(--bg);
-  color: var(--text);
-
 }
 
 /* BACKGROUND */
 html{
     scroll-behavior: smooth;
-     background-image: linear-gradient(
-        rgba(0,0,0,0.75),
-        rgba(0,0,0,0.75)
-    ),
+  overflow-x: hidden;
+  
+  background: var(--bg);
+  color: var(--text);
 
 }
-
+.nav_links {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 15px 30px;
+  display: flex;
+ 
+  align-items: center;
+  justify-content: flex-end;
+}
 
 /* HEADER */
 
@@ -77,12 +82,7 @@ html{
     align-items: center;
     gap: 10px;
 }
-.nav_links{
-  justify-content: flex-end;
-  align-items: center;
-  padding-left: 600px;
- padding-top: 14px;
-}
+
 .logo-title{
     font-size: 40px;
     color: #3b82f6;
@@ -99,32 +99,12 @@ html{
 display: flex;
 justify-content: space-between;  
 }
-nav{
-    display: flex;
-    gap: 18px;
-    align-items: center;
-}
 
-nav a{
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-}
+
 
 /* BUTTONS */
-.nav-link{
-    padding: 10px 18px;
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 12px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    transition: 0.4s ease;
-}
-.nav-link{
-  transition: 0.4s ease;
-  backdrop-filter: blur(10px);
-}
+
+
 .nav-link:hover{
     background: linear-gradient(
         135deg,
@@ -291,18 +271,25 @@ section{
 }
 
 .service-card{
-  background-color: #1a1a1a;
-  padding:30px;
-  border-radius:12px;
-  text-align:center;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
-  transition:0.3s;
-}
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 
 .service-card:hover{
   transform:translateY(-10px);
 }
-
+nav {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .service-icon{
   font-size:45px;
   margin-bottom:20px;
@@ -476,24 +463,8 @@ section{
         gap: 20px;
     }
 }
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  margin: 15px 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: 0.3s;
-}
-button {
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
+
+
 .navbar {
   background: white;
   border-bottom: 1px solid var(--border);
@@ -719,4 +690,4 @@ button:hover {
         padding: 8px 10px;
         font-size: 11px;
     }
-}
+} 
