@@ -30,8 +30,9 @@
   --border: #e2e8f0;
 }
 body{
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
+font-family: 'Segoe UI', sans-serif;
+    color: var(--text);
+    background: var(--bg);
     margin: 0;
     padding: 0;
     padding-top: 20px;
@@ -65,7 +66,8 @@ html{
   .header_container{
     max-width: 1200px;
     margin: auto;
-    background: transparent;
+   background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
@@ -105,17 +107,18 @@ justify-content: space-between;
 /* BUTTONS */
 
 
-.nav-link:hover{
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #60a5fa
-    );
-
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(59,130,246,0.4);
+.nav-link{
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
+.nav-link:hover{
+    color: white;
+}
 /* HERO SECTION */
 .hero_container{
     max-width: 1200px;
@@ -129,7 +132,11 @@ justify-content: space-between;
     height: 500px;
     border-radius: 25px;
     overflow: hidden;
-    background: rgba(255,255,255,0.05);
+       background: linear-gradient(
+        135deg,
+        #2563eb,
+        #14b8a6
+    );
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255,255,255,0.1);
     display: flex;
@@ -160,14 +167,16 @@ justify-content: space-between;
 .slide-title{
     font-size: 70px;
     margin-bottom: 20px;
-    background: linear-gradient(to right,#60a5fa,#ffffff);
+  color: white;
+    background: none;
+    -webkit-text-fill-color: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .slide-content{
     font-size: 20px;
-    color: #d1d5db;
+ color: rgba(255,255,255,0.9);
     width: 60%;
     margin-bottom: 30px;
 }
@@ -271,16 +280,17 @@ section{
 }
 
 .service-card{
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
+  background: white;
+  color: var(--text);
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid var(--border);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
   transition: 0.3s;
+}
 
 .service-card:hover{
-  transform:translateY(-10px);
+  transform: translateY(-10px);
 }
 nav {
   background: white;
